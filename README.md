@@ -159,8 +159,8 @@ and a large head held forward on a long neck.
    `head`, `beak`, `mouth` (the inside of the mouth), `ring` (the lens ring),
    `lens`, `face`, `body`, `thighs`, `brackets`, `feet`, `ankles`, `soles`, and `servos`.
    A buyer colors only four parts; see [Colors](#colors).
-   The head, body, and beak each have a second ramp with the same colors,
-   such as `head-rim-0`,
+   The head, body, beak, feet, ankles, and soles each have a second ramp
+   with the same colors, such as `head-rim-0`,
    for their pixels that touch the outline or a gray part.
    Each ramp repeats the colors of its part's material:
    six cream shades for the shells, three oranges for the beak and feet,
@@ -215,9 +215,10 @@ Each color becomes an art base color for its part's ramp,
 by the same change in saturation and brightness
 that turns the renderer's paint into the default art,
 so that it looks as lit as the default does.
-Graphite also lightens the rim ramps of the head, body, and beak
+Graphite also lightens the rim ramps of the head, body, beak, and feet
 by 0.22 in HSV brightness (the `rim` value in `variants.json`),
-so that a graphite part keeps its outline against the ink, the face, and the servos.
+so that a graphite part keeps its outline against the ink, the face,
+the servos, and the shins.
 
 `mise run pixel:pet graphite,feet=yellow` writes a pet in those colors
 to `Build/appearances/microduck-<hash>/`, as the customizer site downloads it:

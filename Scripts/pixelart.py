@@ -447,8 +447,8 @@ FALLBACK = {"shell": "body", "accent": "beak", "servo": "servos"}
 
 # Parts whose edge pixels, where they meet the ink outline or a dark part, have their own ramp,
 # such as head-rim-0, with the same colors. A dark color can lighten that rim, so the part
-# keeps its outline against the ink, the face, and the servos.
-RIM_PARTS = ("head", "body", "beak")
+# keeps its outline against the ink, the face, the servos, and the shins.
+RIM_PARTS = ("head", "body", "beak", "feet", "ankles", "soles")
 
 
 def part_palette() -> list[tuple[str, tuple[int, int, int], str]]:
