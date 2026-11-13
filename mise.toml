@@ -115,6 +115,6 @@ dir = "Site"
 run = ["pnpm exec astro check", "pnpm exec vp lint src integrations", "pnpm exec vp test run"]
 
 [tasks."site:deploy"]
-description = "Upload the built customizer site to its Hugging Face Space (needs a token; not part of any other task)"
+description = "Upload the built customizer site to its Hugging Face Space and delete its old files (needs a token; not part of any other task)"
 depends = ["site:build"]
 run = "bash Scripts/deploy-site.sh"

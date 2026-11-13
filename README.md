@@ -268,6 +268,10 @@ The site deploys as a static Hugging Face Space that serves the built files:
 `mise run site:deploy` uploads `Site/dist` with `Site/space/README.md`,
 whose front matter sets `sdk: static`.
 `Site/space.json` names the Space's owner and name.
+The upload deletes the Space's files that the new build doesn't have,
+in the same commit, and keeps the Space's `.gitattributes`.
+`bash Scripts/deploy-site.sh --dry-run` lists the files that it would delete,
+without a token.
 
 ## Development
 
