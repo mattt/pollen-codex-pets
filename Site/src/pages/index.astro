@@ -1,0 +1,173 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { appearanceFolder, art, DEFAULT_APPEARANCE, spec } from "../lib/art";
+import { DEFAULT_NAME, NAME_LIMIT } from "../lib/pet";
+import { SITE_NAME } from "../lib/site";
+import "../styles/site.css";
+
+const rowLabels: Record<string, string> = {
+  idle: "Idle",
+  "running-right": "Walk right",
+  "running-left": "Walk left",
+  waving: "Hello",
+  jumping: "Celebrate",
+  failed: "Fall",
+  waiting: "Wait",
+  running: "Chatter",
+  review: "Review",
+};
+const rows = art.rows.map((row) => ({ ...row, label: rowLabels[row.state] ?? row.state }));
+const colors = new Map(spec.colors.map((color) => [color.id, color]));
+const defaultFolder = await appearanceFolder(DEFAULT_APPEARANCE);
+// A light swatch gets a dark check mark, and a dark one a light mark.
+const dark = (hex: string) => {
+  const [r, g, b] = [1, 3, 5].map((i) => Number.parseInt(hex.slice(i, i + 2), 16) / 255);
+  return 0.2126 * r! + 0.7152 * g! + 0.0722 * b! < 0.4;
+};
+const defaultTitle = colors.get(spec.default)!.title;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={`Make your own Microduck · ${SITE_NAME}`}
+      description="Color your own Microduck, the little walking duck robot by Pollen Robotics, and download it as one of the Codex pets in the ChatGPT app."
+      imageAlt="Three pixel-art Microducks: cream with an orange beak, light gray with a yellow lens ring, and light blue."
+    />
+  </head>
+  <body>
+    <a class="skip" href="#customizer">Skip to the customizer</a>
+    <header class="masthead">
+      <p class="eyebrow">{SITE_NAME}</p>
+      <h1>Make your own Microduck</h1>
+      <p class="lede">
+        Choose your colors, the way you would choose a Microduck from Pollen Robotics,
+        and download it as one of the Codex pets in the ChatGPT app, to keep you company while Codex works.
+      </p>
+    </header>
+
+    <noscript>
+      <p class="notice">The customizer needs JavaScript to draw and download your pet.</p>
+    </noscript>
+
+    <main id="customizer" class="customizer">
+      <section class="stage" aria-labelledby="preview-heading">
+        <h2 id="preview-heading">Preview</h2>
+        <figure class="preview">
+          <canvas id="preview" width={art.frame.width} height={art.frame.height} role="img" aria-label="Your Microduck, idle"></canvas>
+          <figcaption id="preview-caption">Idle.</figcaption>
+        </figure>
+        <fieldset class="rows">
+          <legend>Animation</legend>
+          <div class="choices">
+            {
+              rows.map((row, i) => (
+                <label class="chip">
+                  <input type="radio" name="row" value={String(row.row)} checked={i === 0} />
+                  <span>{row.label}</span>
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+        <button type="button" id="play" class="button secondary">Pause</button>
+      </section>
+
+      <section class="controls" aria-labelledby="colors-heading">
+        <div class="colors-heading">
+          <h2 id="colors-heading">Colors</h2>
+          <span id="appearance-title" class="badge" aria-live="polite">{defaultTitle}</span>
+        </div>
+        <fieldset class="swatches">
+          <legend>Factory colors</legend>
+          <div class="swatch-row">
+            {
+              spec.presets.map((id) => {
+                const color = colors.get(id)!;
+                return (
+                  <label class="swatch" title={`${color.title} preset`} style={`--swatch: ${color.rgb}`} data-dark={dark(color.rgb) || undefined}>
+                    <input type="radio" name="preset" value={id} checked={id === spec.default} />
+                    <span class="visually-hidden">{color.title} preset</span>
+                  </label>
+                );
+              })
+            }
+          </div>
+          <p class="hint">A factory color sets the head and body, with an orange beak and feet.</p>
+        </fieldset>
+        {
+          spec.parts.map((part) => (
+            <fieldset class="swatches" data-part={part.id}>
+              <legend>
+                {part.title}: <span class="chosen">{colors.get(DEFAULT_APPEARANCE[part.id as keyof typeof DEFAULT_APPEARANCE])!.title}</span>
+              </legend>
+              <div class="swatch-row">
+                {spec.colors.map((color) => (
+                  <label class="swatch" title={color.title} style={`--swatch: ${color.rgb}`} data-dark={dark(color.rgb) || undefined}>
+                    <input
+                      type="radio"
+                      name={`part-${part.id}`}
+                      value={color.id}
+                      checked={DEFAULT_APPEARANCE[part.id as keyof typeof DEFAULT_APPEARANCE] === color.id}
+                    />
+                    <span class="visually-hidden">{part.title}: {color.title}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+          ))
+        }
+        <div class="color-actions">
+          <p class="hint">Colors are visual approximations. The lens ring, thighs, brackets, and servos keep their colors.</p>
+          <button type="button" id="reset" class="button secondary">Reset colors</button>
+        </div>
+
+        <h2 id="download-heading">Download</h2>
+        <form id="download" class="download" aria-labelledby="download-heading">
+          <label class="field">
+            <span>Name</span>
+            <input type="text" id="name" name="name" value={DEFAULT_NAME} maxlength={NAME_LIMIT} autocomplete="off" spellcheck="false" aria-describedby="folder-note" />
+          </label>
+          <p id="folder-note" class="hint">
+            Folder: <code id="folder">{defaultFolder}</code>, named from your colors, so the same colors always make the same folder.
+          </p>
+          <button type="submit" class="button">Download your Microduck</button>
+          <p id="status" class="status" role="status"></p>
+        </form>
+
+        <h2 id="install-heading">Install</h2>
+        <ol class="steps" aria-labelledby="install-heading">
+          <li>
+            Unzip the download into your Codex pets folder, so that it holds a{" "}
+            <code class="folder-name">{defaultFolder}</code> folder:
+            <pre><code>unzip ~/Downloads/<span class="folder-name">{defaultFolder}</span>.zip -d ~/.codex/pets</code></pre>
+            If you set <code>CODEX_HOME</code>, use <code>$CODEX_HOME/pets</code> instead.
+          </li>
+          <li>In the ChatGPT app, open Settings, choose Mini &amp; Pets, and pick your Microduck under My pets.</li>
+          <li>Type <code>/pet</code> in the composer to wake your pet or tuck it away.</li>
+        </ol>
+      </section>
+    </main>
+
+    <footer class="credits">
+      <p>
+        Microduck is a robot by <a href="https://pollen-robotics.com/microduck/">Pollen Robotics</a>.
+        This pixel art adapts its <a href="https://github.com/pollen-robotics/microduck_rl">3D model</a>,
+        copyright Pollen Robotics, and is licensed for noncommercial use under{" "}
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>.
+        If you share your pet or adapt it, credit Pollen Robotics and keep the same license.
+        Each download includes these terms.
+      </p>
+      <p>
+        {SITE_NAME} is an independent, noncommercial project.
+        It is not affiliated with or endorsed by Pollen Robotics or OpenAI.
+        Codex and ChatGPT are products of OpenAI.
+      </p>
+    </footer>
+
+    <script>
+      import "../scripts/customizer.ts";
+    </script>
+  </body>
+</html>

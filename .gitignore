@@ -1,0 +1,12 @@
+.DS_Store
+.build/
+.swiftpm/
+
+# Rendered atlases and frames. The packaged pets in Pets/ are tracked.
+Build/
+
+# The customizer site's dependencies, build, and data generated from the sprite.
+Site/node_modules/
+Site/dist/
+Site/.astro/
+Site/src/generated/

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "note": "Microduck's colors as the physical robot offers them, matching Pollen Pet's MicroduckAppearance. The colors are visual approximations.",
+  "colors": [
+    { "id": "cream", "title": "Cream", "rgb": "#eee6d2" },
+    { "id": "graphite", "title": "Graphite", "rgb": "#41434b", "rim": 0.22 },
+    { "id": "lavender", "title": "Lavender", "rgb": "#b6a4da" },
+    { "id": "sky", "title": "Sky", "rgb": "#8dc4df" },
+    { "id": "orange", "title": "Orange", "rgb": "#f18b42" },
+    { "id": "yellow", "title": "Yellow", "rgb": "#f5cc4d" }
+  ],
+  "presets": ["cream", "graphite", "lavender", "sky"],
+  "presetAccent": "orange",
+  "default": "cream",
+  "parts": [
+    { "id": "head", "title": "Head", "spriteParts": ["head", "mouth"] },
+    { "id": "body", "title": "Body", "spriteParts": ["body"] },
+    { "id": "beak", "title": "Beak", "spriteParts": ["beak"] },
+    { "id": "feet", "title": "Feet", "spriteParts": ["feet", "ankles", "soles"] }
+  ],
+  "folder": {
+    "encoding": "microduck-appearance/1 head=<color> body=<color> beak=<color> feet=<color>",
+    "rule": "The folder is microduck- and the first 7 hex digits of the SHA-256 of the encoding, as UTF-8 with single spaces and no newline."
+  },
+  "petDescription": "A Microduck, the little walking duck robot by Pollen Robotics, in its owner's colors."
+}

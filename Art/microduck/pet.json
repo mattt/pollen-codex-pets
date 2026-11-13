@@ -1,0 +1,7 @@
+{
+  "id": "microduck",
+  "displayName": "Microduck",
+  "description": "A little walking duck robot by Pollen Robotics.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

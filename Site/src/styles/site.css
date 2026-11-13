@@ -1,0 +1,479 @@
+/* Breakpoints: the customizer's two columns start above 56rem. */
+@layer reset, tokens, base, layout, components;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body,
+  h1,
+  h2,
+  p,
+  figure,
+  fieldset,
+  ol,
+  pre {
+    margin: 0;
+  }
+
+  fieldset {
+    padding: 0;
+    border: 0;
+    min-inline-size: 0;
+  }
+}
+
+@layer tokens {
+  :root {
+    color-scheme: light dark;
+    --paper: light-dark(#f6f1e7, oklch(20% 0.01 80));
+    --surface: light-dark(oklch(99% 0.005 85), oklch(26% 0.012 80));
+    --ink: light-dark(oklch(22% 0.02 280), oklch(93% 0.01 85));
+    --muted: light-dark(oklch(43% 0.02 280), oklch(78% 0.01 85));
+    --line: light-dark(oklch(22% 0.02 280 / 0.22), oklch(93% 0.01 85 / 0.25));
+    --accent: light-dark(oklch(50% 0.14 45), oklch(78% 0.13 60));
+    --on-accent: light-dark(white, oklch(20% 0.02 60));
+    --focus: light-dark(oklch(45% 0.18 260), oklch(80% 0.12 230));
+    --stage: light-dark(oklch(92% 0.015 85), oklch(32% 0.012 80));
+    --radius: 0.75rem;
+    --space-s: 0.5rem;
+    --space-m: clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
+    --space-l: clamp(1.5rem, 1rem + 2vw, 3rem);
+    --text-small: 0.875rem;
+    --text-base: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+}
+
+@layer base {
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: var(--text-base) / 1.5 var(--font);
+    padding: var(--space-l) var(--space-m);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 1.4rem + 2.5vw, 3.25rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-block-end: var(--space-s);
+  }
+
+  a {
+    color: var(--accent);
+    text-underline-offset: 0.15em;
+  }
+
+  code,
+  pre {
+    font-family: var(--mono);
+    font-size: 0.9em;
+  }
+
+  pre {
+    /* Commands wrap instead of scrolling, so nothing scrolls sideways on a phone. */
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    padding: var(--space-s) 0.75rem;
+    margin-block: var(--space-s);
+    background: var(--stage);
+    border-radius: 0.5rem;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer layout {
+  .masthead,
+  .customizer,
+  .credits,
+  noscript {
+    display: block;
+    max-inline-size: 72rem;
+    margin-inline: auto;
+  }
+
+  .masthead {
+    margin-block-end: var(--space-l);
+
+    .lede {
+      max-inline-size: 42rem;
+      margin-block-start: var(--space-m);
+      color: var(--muted);
+      font-size: 1.125rem;
+    }
+  }
+
+  .customizer {
+    display: grid;
+    /* minmax(0, …) lets a column shrink below its content, such as the preview canvas. */
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-l);
+
+    @media (width > 56rem) {
+      grid-template-columns: minmax(18rem, 2fr) 3fr;
+      align-items: start;
+    }
+  }
+
+  .stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-m);
+
+    @media (width > 56rem) {
+      position: sticky;
+      inset-block-start: var(--space-m);
+    }
+  }
+
+  .controls {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-m);
+
+    h2 {
+      margin-block: var(--space-m) 0;
+    }
+
+    h2:first-child {
+      margin-block-start: 0;
+    }
+  }
+
+  .credits {
+    margin-block-start: var(--space-l);
+    padding-block-start: var(--space-m);
+    border-block-start: 1px solid var(--line);
+    color: var(--muted);
+    font-size: var(--text-small);
+    display: grid;
+    gap: var(--space-s);
+  }
+}
+
+@layer components {
+  .skip {
+    position: absolute;
+    inset-inline-start: var(--space-m);
+    inset-block-start: -4rem;
+    padding: var(--space-s) var(--space-m);
+    background: var(--surface);
+    border-radius: 0.5rem;
+
+    &:focus {
+      inset-block-start: var(--space-s);
+    }
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: var(--text-small);
+    margin-block-end: var(--space-s);
+  }
+
+  .notice {
+    padding: var(--space-m);
+    margin-block-end: var(--space-m);
+    background: var(--surface);
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+  }
+
+  .preview {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: var(--space-s);
+    padding: var(--space-m);
+    background: var(--stage);
+    border-radius: var(--radius);
+
+    canvas {
+      inline-size: min(100%, 384px);
+      aspect-ratio: 64 / 68;
+      image-rendering: pixelated;
+    }
+
+    figcaption {
+      color: var(--muted);
+      font-size: var(--text-small);
+    }
+  }
+
+  legend {
+    font-weight: 600;
+    margin-block-end: var(--space-s);
+  }
+
+  .choices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+
+  .chip {
+    position: relative;
+    display: inline-flex;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      inset: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      min-block-size: 2.75rem;
+      padding-inline: 0.875rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+    }
+
+    input:checked + span {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    input:focus-visible + span {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    input:disabled + span {
+      color: var(--muted);
+      border-style: dashed;
+      background: transparent;
+    }
+
+    input:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .hint {
+    color: var(--muted);
+    font-size: var(--text-small);
+    margin-block-start: var(--space-s);
+  }
+
+  .part-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(11rem, 100%), 1fr));
+    gap: var(--space-s);
+  }
+
+  .part {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-block-size: 2.75rem;
+    padding: 0.25rem 0.75rem 0.25rem 0.25rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    input {
+      inline-size: 2.75rem;
+      block-size: 2.25rem;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 0.375rem;
+      background: none;
+      cursor: pointer;
+    }
+  }
+
+  .field {
+    display: grid;
+    gap: 0.25rem;
+    font-weight: 600;
+
+    input {
+      font: inherit;
+      font-weight: 400;
+      min-block-size: 2.75rem;
+      padding-inline: 0.75rem;
+      color: var(--ink);
+      background: var(--surface);
+      border: 1px solid var(--muted);
+      border-radius: 0.5rem;
+      max-inline-size: 28rem;
+    }
+  }
+
+  .download {
+    display: grid;
+    gap: var(--space-s);
+    justify-items: start;
+  }
+
+  .button {
+    font: inherit;
+    font-weight: 600;
+    min-block-size: 2.75rem;
+    padding-inline: 1.25rem;
+    border: 2px solid var(--accent);
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--on-accent);
+    cursor: pointer;
+    justify-self: start;
+
+    &.secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+  }
+
+  .status {
+    min-block-size: 1.5em;
+    color: var(--muted);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-s);
+    padding-inline-start: 1.25rem;
+  }
+
+  @media (forced-colors: active) {
+    .chip input:checked + span {
+      border: 3px solid CanvasText;
+    }
+
+    .button {
+      border-color: ButtonText;
+    }
+  }
+}
+
+@layer components {
+  .visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .colors-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .badge {
+    padding: 0.125rem 0.625rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: var(--text-small);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .swatches legend {
+    margin-block-end: var(--space-s);
+  }
+
+  .chosen {
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  .swatch-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+
+  .swatch {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    border-radius: 0.625rem;
+    background: var(--swatch);
+    border: 1px solid var(--ink);
+    cursor: pointer;
+
+    input {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    &:has(input:checked) {
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
+    }
+
+    &:has(input:checked)::after {
+      content: "✓";
+      font-weight: 800;
+      color: oklch(20% 0.02 280);
+    }
+
+    &[data-dark]:has(input:checked)::after {
+      color: white;
+    }
+
+    &:has(input:focus-visible) {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+    }
+  }
+
+  .color-actions {
+    display: grid;
+    gap: var(--space-s);
+  }
+
+  @media (forced-colors: active) {
+    .swatch {
+      forced-color-adjust: none;
+    }
+  }
+}

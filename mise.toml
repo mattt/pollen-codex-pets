@@ -1,0 +1,120 @@
+[tools]
+uv = "0.9.28"
+node = "24.22.3"
+pnpm = "12.18.0"
+
+[tasks.setup]
+description = "Build the renderer"
+run = "swift build -c release --product render-pets"
+
+[tasks.render]
+description = "Render 3D atlases to Build/render, and raw frames and part masks for the pixel art to Build/raw and Build/mask"
+depends = ["setup"]
+run = '.build/release/render-pets --output Build/render --raw Build/raw --mask Build/mask "$@"'
+
+[tasks."pixel:inputs"]
+description = "Downscale the raw renders into 68 x 68 frame-transfer inputs in Build/transfer"
+depends = ["render"]
+run = "uv run Scripts/pixelart.py inputs --pet microduck"
+
+[tasks."render:front"]
+description = "Render Microduck with its in-place rows facing the viewer, to Build/front"
+depends = ["setup"]
+run = ".build/release/render-pets --pet microduck --view front --output Build/front/render --raw Build/front/raw"
+
+[tasks."pixel:inputs:front"]
+description = "Make Microduck's front-facing transfer inputs in Build/front/transfer"
+depends = ["render:front"]
+run = "uv run Scripts/pixelart.py inputs --pet microduck --raw Build/front/raw --out Build/front/transfer"
+
+[tasks."pixel:export"]
+description = "Export Microduck's frames and palette from microduck.aseprite to Build/art and Build/palette"
+run = "uv run Scripts/pixelart.py export --pet microduck"
+
+[tasks."pixel:label"]
+description = "Give every pixel of microduck.aseprite its part from the part masks in Build/mask"
+depends = ["render"]
+run = "uv run Scripts/pixelart.py label --pet microduck"
+
+[tasks."pixel:pet"]
+description = "Write a pet in a buyer's colors to Build/appearances, as the customizer does; pass an appearance such as graphite,feet=yellow"
+run = "uv run Scripts/pixelart.py pet --pet microduck --appearance"
+
+[tasks."pixel:transfer"]
+description = "PAID: restyle Microduck rows' 3D renders as pixel art with PixelLab; pass the rows"
+run = "bash Scripts/redraw.sh transfer"
+
+[tasks."pixel:collect"]
+description = "Collect the newest transfer runs of the rows into Build/art; pass the rows"
+run = "bash Scripts/redraw.sh collect"
+
+[tasks."pixel:correct"]
+description = "PAID: tidy the rows' collected frames with PixelLab; pass the rows"
+run = "bash Scripts/redraw.sh correct"
+
+[tasks."pixel:stage"]
+description = "Restore the outline on the rows' newest correct runs; pass the rows"
+run = "bash Scripts/redraw.sh stage"
+
+[tasks."pixel:reduce"]
+description = "PAID: put the rows' staged frames on microduck.aseprite's palette with PixelLab; pass the rows"
+run = "bash Scripts/redraw.sh reduce"
+
+[tasks."pixel:finish"]
+description = "Write the newest reduce run into microduck.aseprite and pack the atlas"
+run = "bash Scripts/redraw.sh finish"
+
+[tasks."pixel:atlas"]
+description = "Pack Microduck's frames from microduck.aseprite into Build/pixel"
+run = "uv run Scripts/pixelart.py atlas --pet microduck"
+
+[tasks.package]
+description = "Package the pets in Pets/: pixel art where it exists, otherwise the 3D render"
+depends = ["render", "pixel:atlas"]
+run = "uv run Scripts/package.py"
+
+[tasks.check]
+description = "Check the packaged pets against the Codex v2 pet contract"
+run = ["uv run Scripts/package.py --check", "shellcheck Scripts/install.sh"]
+
+[tasks.install]
+description = "Copy the packaged pets into Codex; pass pet IDs to install only those"
+run = 'bash Scripts/install.sh "$@"'
+
+[tasks.preview]
+description = "Serve the preview page, which plays every row at the ChatGPT app's timings; set PORT to change the port"
+run = 'echo "Open http://127.0.0.1:${PORT:-8000}/Preview/" && uv run --no-project python -m http.server "${PORT:-8000}" --bind 127.0.0.1'
+
+[tasks."site:data"]
+description = "Write the customizer's art data from microduck.aseprite to Site/src/generated"
+sources = ["Art/microduck/microduck.aseprite", "Art/microduck/variants.json", "Art/microduck/pet.json", "Scripts/pixelart.py"]
+outputs = ["Site/src/generated/microduck.json"]
+run = "uv run Scripts/pixelart.py site-data --pet microduck --out Site/src/generated/microduck.json"
+
+[tasks."site:install"]
+description = "Install the customizer site's packages"
+dir = "Site"
+run = "pnpm install --frozen-lockfile"
+
+[tasks."site:dev"]
+description = "Serve the customizer site for development; set SITE_PORT to change the port from 4387"
+depends = ["site:data", "site:install"]
+dir = "Site"
+run = 'pnpm exec astro dev --host 127.0.0.1 --port "${SITE_PORT:-4387}"'
+
+[tasks."site:build"]
+description = "Build the customizer site into Site/dist"
+depends = ["site:data", "site:install"]
+dir = "Site"
+run = "pnpm exec astro build"
+
+[tasks."site:check"]
+description = "Type-check, lint, and test the customizer site"
+depends = ["site:data", "site:install"]
+dir = "Site"
+run = ["pnpm exec astro check", "pnpm exec vp lint src integrations", "pnpm exec vp test run"]
+
+[tasks."site:deploy"]
+description = "Upload the built customizer site to its Hugging Face Space (needs a token; not part of any other task)"
+depends = ["site:build"]
+run = "bash Scripts/deploy-site.sh"

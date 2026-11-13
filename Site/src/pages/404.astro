@@ -1,0 +1,18 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_NAME } from "../lib/site";
+import "../styles/site.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Page not found · ${SITE_NAME}`} description="This page doesn't exist." imageAlt="Three pixel-art Microducks in different colors." noindex />
+  </head>
+  <body>
+    <main class="masthead">
+      <h1>Page not found</h1>
+      <p class="lede"><a href="/">Make your own Microduck</a> instead.</p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+Microduck pixel art
+
+This pet's spritesheet adapts Pollen Robotics' Microduck model
+(https://github.com/pollen-robotics/microduck_rl), copyright Pollen Robotics.
+It is pixel art drawn with PixelLab over renders of the model, recolored to
+its owner's choices, and is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0):
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+You may share and adapt it for noncommercial purposes, if you credit
+Pollen Robotics, link to the license, say what you changed, and license your
+adaptation under CC BY-NC-SA 4.0. Commercial use requires permission from
+Pollen Robotics.
+
+Made with Pollen Codex Pets, an independent, noncommercial project that is not
+affiliated with or endorsed by Pollen Robotics or OpenAI.

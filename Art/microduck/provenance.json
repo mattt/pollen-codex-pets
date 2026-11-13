@@ -1,0 +1,670 @@
+{
+  "failed-0": {
+    "run": "20261112-060603-microduck-3d3-failed",
+    "job": "b2f91e3d-a62e-485c-ae39-1753e96498a4",
+    "frame": 0,
+    "mirrored": false,
+    "corrected": "20261112-060950-microduck-3d3-correct-failed",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "failed-1": {
+    "run": "20261112-060603-microduck-3d3-failed",
+    "job": "b2f91e3d-a62e-485c-ae39-1753e96498a4",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-060950-microduck-3d3-correct-failed",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "26 pixels repaired by pixelart.py's foot rules"
+  },
+  "failed-2": {
+    "run": "20261112-060603-microduck-3d3-failed",
+    "job": "b2f91e3d-a62e-485c-ae39-1753e96498a4",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-060950-microduck-3d3-correct-failed",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "20 pixels repaired by pixelart.py's foot rules"
+  },
+  "failed-3": {
+    "run": "20261112-060603-microduck-3d3-failed",
+    "job": "b2f91e3d-a62e-485c-ae39-1753e96498a4",
+    "frame": 3,
+    "mirrored": false,
+    "corrected": "20261112-060950-microduck-3d3-correct-failed",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "failed-4": {
+    "run": "20261112-060603-microduck-3d3-failed",
+    "job": "b2f91e3d-a62e-485c-ae39-1753e96498a4",
+    "frame": 4,
+    "mirrored": false,
+    "corrected": "20261112-060950-microduck-3d3-correct-failed",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "19 pixels repaired by pixelart.py's foot rules"
+  },
+  "failed-5": {
+    "run": "20261112-060603-microduck-3d3-failed",
+    "job": "b2f91e3d-a62e-485c-ae39-1753e96498a4",
+    "frame": 5,
+    "mirrored": false,
+    "corrected": "20261112-060950-microduck-3d3-correct-failed",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "17 pixels repaired by pixelart.py's foot rules"
+  },
+  "failed-6": {
+    "run": "20261112-060603-microduck-3d3-failed",
+    "job": "b2f91e3d-a62e-485c-ae39-1753e96498a4",
+    "frame": 6,
+    "mirrored": false,
+    "corrected": "20261112-060950-microduck-3d3-correct-failed",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "8 pixels repaired by pixelart.py's foot rules"
+  },
+  "failed-7": {
+    "run": "20261112-060603-microduck-3d3-failed",
+    "job": "b2f91e3d-a62e-485c-ae39-1753e96498a4",
+    "frame": 7,
+    "mirrored": false,
+    "corrected": "20261112-060950-microduck-3d3-correct-failed",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "7 pixels repaired by pixelart.py's foot rules"
+  },
+  "idle-0": {
+    "run": "20261112-063749-microduck-3d3-three-quarter-idle",
+    "job": "432a71ab-3b1d-4c52-bd38-a717329e116d",
+    "frame": 0,
+    "mirrored": false,
+    "corrected": "20261112-064111-microduck-3d3-redo-correct-idle",
+    "palette": "20261112-064113-microduck-3d3-redo-palette",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "idle-1": {
+    "run": "20261112-063749-microduck-3d3-three-quarter-idle",
+    "job": "432a71ab-3b1d-4c52-bd38-a717329e116d",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-064111-microduck-3d3-redo-correct-idle",
+    "palette": "20261112-064113-microduck-3d3-redo-palette",
+    "feet": "22 pixels repaired by pixelart.py's foot rules"
+  },
+  "idle-2": {
+    "run": "20261112-063749-microduck-3d3-three-quarter-idle",
+    "job": "432a71ab-3b1d-4c52-bd38-a717329e116d",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-064111-microduck-3d3-redo-correct-idle",
+    "palette": "20261112-064113-microduck-3d3-redo-palette",
+    "feet": "22 pixels repaired by pixelart.py's foot rules"
+  },
+  "idle-3": {
+    "run": "20261112-063749-microduck-3d3-three-quarter-idle",
+    "job": "432a71ab-3b1d-4c52-bd38-a717329e116d",
+    "frame": 3,
+    "mirrored": false,
+    "corrected": "20261112-064111-microduck-3d3-redo-correct-idle",
+    "palette": "20261112-064113-microduck-3d3-redo-palette",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "idle-4": {
+    "run": "20261112-063749-microduck-3d3-three-quarter-idle",
+    "job": "432a71ab-3b1d-4c52-bd38-a717329e116d",
+    "frame": 4,
+    "mirrored": false,
+    "corrected": "20261112-064111-microduck-3d3-redo-correct-idle",
+    "palette": "20261112-064113-microduck-3d3-redo-palette",
+    "feet": "22 pixels repaired by pixelart.py's foot rules"
+  },
+  "idle-5": {
+    "run": "20261112-063749-microduck-3d3-three-quarter-idle",
+    "job": "432a71ab-3b1d-4c52-bd38-a717329e116d",
+    "frame": 5,
+    "mirrored": false,
+    "corrected": "20261112-064111-microduck-3d3-redo-correct-idle",
+    "palette": "20261112-064113-microduck-3d3-redo-palette",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "jumping-0": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-jumping",
+    "job": "43fc08c5-573c-4398-a490-9c8db7e3ef3e",
+    "frame": 0,
+    "mirrored": false,
+    "corrected": "20261112-060945-microduck-3d3-correct-jumping",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "20 pixels repaired by pixelart.py's foot rules"
+  },
+  "jumping-1": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-jumping",
+    "job": "43fc08c5-573c-4398-a490-9c8db7e3ef3e",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-060945-microduck-3d3-correct-jumping",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "21 pixels repaired by pixelart.py's foot rules"
+  },
+  "jumping-2": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-jumping",
+    "job": "43fc08c5-573c-4398-a490-9c8db7e3ef3e",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-060945-microduck-3d3-correct-jumping",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "22 pixels repaired by pixelart.py's foot rules"
+  },
+  "jumping-3": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-jumping",
+    "job": "43fc08c5-573c-4398-a490-9c8db7e3ef3e",
+    "frame": 3,
+    "mirrored": false,
+    "corrected": "20261112-060945-microduck-3d3-correct-jumping",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "jumping-4": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-jumping",
+    "job": "43fc08c5-573c-4398-a490-9c8db7e3ef3e",
+    "frame": 4,
+    "mirrored": false,
+    "corrected": "20261112-060945-microduck-3d3-correct-jumping",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "22 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-000.0": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 0,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "18 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-022.5": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "16 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-045.0": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "16 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-067.5": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 3,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "17 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-090.0": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 4,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "17 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-112.5": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 5,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "17 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-135.0": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 6,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "14 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-157.5": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 7,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "16 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-180.0": {
+    "run": "20261112-060603-microduck-3d3-look-180",
+    "job": "d0eae4f3-bb25-4c53-90e0-0cec45db0154",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "13 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-202.5": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 7,
+    "mirrored": true,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "16 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-225.0": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 6,
+    "mirrored": true,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "14 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-247.5": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 5,
+    "mirrored": true,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "17 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-270.0": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 4,
+    "mirrored": true,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "17 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-292.5": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 3,
+    "mirrored": true,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "17 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-315.0": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 2,
+    "mirrored": true,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "16 pixels repaired by pixelart.py's foot rules"
+  },
+  "look-337.5": {
+    "run": "20261112-053837-microduck-3d3-look",
+    "job": "296c6ed2-128a-4523-843c-8f07cb309e0d",
+    "frame": 1,
+    "mirrored": true,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "16 pixels repaired by pixelart.py's foot rules"
+  },
+  "neutral": {
+    "run": "20261112-060603-microduck-3d3-look-180",
+    "job": "d0eae4f3-bb25-4c53-90e0-0cec45db0154",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-061005-microduck-3d3-correct-look",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "13 pixels repaired by pixelart.py's foot rules"
+  },
+  "review-0": {
+    "run": "20261112-053705-microduck-3d3-three-quarter-review",
+    "job": "6881d511-1ff6-42d8-8805-5f81309264d8",
+    "frame": 0,
+    "mirrored": false,
+    "corrected": "20261112-061001-microduck-3d3-correct-review",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "20 pixels repaired by pixelart.py's foot rules"
+  },
+  "review-1": {
+    "run": "20261112-053705-microduck-3d3-three-quarter-review",
+    "job": "6881d511-1ff6-42d8-8805-5f81309264d8",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-061001-microduck-3d3-correct-review",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "20 pixels repaired by pixelart.py's foot rules"
+  },
+  "review-2": {
+    "run": "20261112-053705-microduck-3d3-three-quarter-review",
+    "job": "6881d511-1ff6-42d8-8805-5f81309264d8",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-061001-microduck-3d3-correct-review",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "review-3": {
+    "run": "20261112-053705-microduck-3d3-three-quarter-review",
+    "job": "6881d511-1ff6-42d8-8805-5f81309264d8",
+    "frame": 3,
+    "mirrored": false,
+    "corrected": "20261112-061001-microduck-3d3-correct-review",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "21 pixels repaired by pixelart.py's foot rules"
+  },
+  "review-4": {
+    "run": "20261112-053705-microduck-3d3-three-quarter-review",
+    "job": "6881d511-1ff6-42d8-8805-5f81309264d8",
+    "frame": 4,
+    "mirrored": false,
+    "corrected": "20261112-061001-microduck-3d3-correct-review",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "25 pixels repaired by pixelart.py's foot rules"
+  },
+  "review-5": {
+    "run": "20261112-053705-microduck-3d3-three-quarter-review",
+    "job": "6881d511-1ff6-42d8-8805-5f81309264d8",
+    "frame": 5,
+    "mirrored": false,
+    "corrected": "20261112-061001-microduck-3d3-correct-review",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "20 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-0": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-chatter",
+    "job": "f1e1ec97-d90f-4602-8670-c99bc01f757b",
+    "frame": 0,
+    "mirrored": false,
+    "corrected": "20261112-060958-microduck-3d3-correct-chatter",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "24 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-1": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-chatter",
+    "job": "f1e1ec97-d90f-4602-8670-c99bc01f757b",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-060958-microduck-3d3-correct-chatter",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-2": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-chatter",
+    "job": "f1e1ec97-d90f-4602-8670-c99bc01f757b",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-060958-microduck-3d3-correct-chatter",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-3": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-chatter",
+    "job": "f1e1ec97-d90f-4602-8670-c99bc01f757b",
+    "frame": 3,
+    "mirrored": false,
+    "corrected": "20261112-060958-microduck-3d3-correct-chatter",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "21 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-4": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-chatter",
+    "job": "f1e1ec97-d90f-4602-8670-c99bc01f757b",
+    "frame": 4,
+    "mirrored": false,
+    "corrected": "20261112-060958-microduck-3d3-correct-chatter",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "21 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-5": {
+    "run": "20261112-060420-microduck-3d3-three-quarter-chatter",
+    "job": "f1e1ec97-d90f-4602-8670-c99bc01f757b",
+    "frame": 5,
+    "mirrored": false,
+    "corrected": "20261112-060958-microduck-3d3-correct-chatter",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "feet": "22 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-left-0": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 0,
+    "mirrored": true,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "2 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-left-1": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 1,
+    "mirrored": true,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "2 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-left-2": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 2,
+    "mirrored": true,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette"
+  },
+  "running-left-3": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 3,
+    "mirrored": true,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "6 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-left-4": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 4,
+    "mirrored": true,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "9 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-left-5": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 5,
+    "mirrored": true,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "24 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-left-6": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 6,
+    "mirrored": true,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "25 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-left-7": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 7,
+    "mirrored": true,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "25 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-right-0": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 0,
+    "mirrored": false,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "2 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-right-1": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "2 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-right-2": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette"
+  },
+  "running-right-3": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 3,
+    "mirrored": false,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "6 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-right-4": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 4,
+    "mirrored": false,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "9 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-right-5": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 5,
+    "mirrored": false,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "24 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-right-6": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 6,
+    "mirrored": false,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "25 pixels repaired by pixelart.py's foot rules"
+  },
+  "running-right-7": {
+    "run": "20261112-064752-microduck-3d3-trot",
+    "job": "354c1da6-8c17-4e49-8b68-656d764252c8",
+    "frame": 7,
+    "mirrored": false,
+    "corrected": "20261112-065745-microduck-3d3-redo-correct-trot",
+    "palette": "20261112-065746-microduck-3d3-redo-palette",
+    "feet": "25 pixels repaired by pixelart.py's foot rules"
+  },
+  "waiting-0": {
+    "run": "20261112-062126-microduck-3d3-three-quarter-waiting",
+    "job": "9f32578c-427a-4ae7-a2f9-ab4c8c26da0b",
+    "frame": 0,
+    "mirrored": false,
+    "corrected": "20261112-062344-microduck-3d3-redo-correct-waiting",
+    "palette": "20261112-062345-microduck-3d3-redo-palette",
+    "feet": "15 pixels repaired by pixelart.py's foot rules"
+  },
+  "waiting-1": {
+    "run": "20261112-062126-microduck-3d3-three-quarter-waiting",
+    "job": "9f32578c-427a-4ae7-a2f9-ab4c8c26da0b",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-062344-microduck-3d3-redo-correct-waiting",
+    "palette": "20261112-062345-microduck-3d3-redo-palette",
+    "feet": "15 pixels repaired by pixelart.py's foot rules"
+  },
+  "waiting-2": {
+    "run": "20261112-062126-microduck-3d3-three-quarter-waiting",
+    "job": "9f32578c-427a-4ae7-a2f9-ab4c8c26da0b",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-062344-microduck-3d3-redo-correct-waiting",
+    "palette": "20261112-062345-microduck-3d3-redo-palette",
+    "feet": "15 pixels repaired by pixelart.py's foot rules"
+  },
+  "waiting-3": {
+    "run": "20261112-062126-microduck-3d3-three-quarter-waiting",
+    "job": "9f32578c-427a-4ae7-a2f9-ab4c8c26da0b",
+    "frame": 3,
+    "mirrored": false,
+    "corrected": "20261112-062344-microduck-3d3-redo-correct-waiting",
+    "palette": "20261112-062345-microduck-3d3-redo-palette",
+    "feet": "17 pixels repaired by pixelart.py's foot rules"
+  },
+  "waiting-4": {
+    "run": "20261112-062126-microduck-3d3-three-quarter-waiting",
+    "job": "9f32578c-427a-4ae7-a2f9-ab4c8c26da0b",
+    "frame": 4,
+    "mirrored": false,
+    "corrected": "20261112-062344-microduck-3d3-redo-correct-waiting",
+    "palette": "20261112-062345-microduck-3d3-redo-palette",
+    "feet": "13 pixels repaired by pixelart.py's foot rules"
+  },
+  "waiting-5": {
+    "run": "20261112-062126-microduck-3d3-three-quarter-waiting",
+    "job": "9f32578c-427a-4ae7-a2f9-ab4c8c26da0b",
+    "frame": 5,
+    "mirrored": false,
+    "corrected": "20261112-062344-microduck-3d3-redo-correct-waiting",
+    "palette": "20261112-062345-microduck-3d3-redo-palette",
+    "feet": "18 pixels repaired by pixelart.py's foot rules"
+  },
+  "waving-0": {
+    "run": "20261112-053409-microduck-3d3-three-quarter-waving",
+    "job": "763d11bd-d0d6-4212-9ca2-3fe0e1d2e41d",
+    "frame": 0,
+    "mirrored": false,
+    "corrected": "20261112-060941-microduck-3d3-correct-waving",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "edit": "feet repainted from palette color #f7530e to #af652c, the other rows' foot orange",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "waving-1": {
+    "run": "20261112-053409-microduck-3d3-three-quarter-waving",
+    "job": "763d11bd-d0d6-4212-9ca2-3fe0e1d2e41d",
+    "frame": 1,
+    "mirrored": false,
+    "corrected": "20261112-060941-microduck-3d3-correct-waving",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "edit": "feet repainted from palette color #f7530e to #af652c, the other rows' foot orange",
+    "feet": "22 pixels repaired by pixelart.py's foot rules"
+  },
+  "waving-2": {
+    "run": "20261112-053409-microduck-3d3-three-quarter-waving",
+    "job": "763d11bd-d0d6-4212-9ca2-3fe0e1d2e41d",
+    "frame": 2,
+    "mirrored": false,
+    "corrected": "20261112-060941-microduck-3d3-correct-waving",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "edit": "feet repainted from palette color #f7530e to #af652c, the other rows' foot orange",
+    "feet": "23 pixels repaired by pixelart.py's foot rules"
+  },
+  "waving-3": {
+    "run": "20261112-053409-microduck-3d3-three-quarter-waving",
+    "job": "763d11bd-d0d6-4212-9ca2-3fe0e1d2e41d",
+    "frame": 3,
+    "mirrored": false,
+    "corrected": "20261112-060941-microduck-3d3-correct-waving",
+    "palette": "20261112-061007-microduck-3d3-palette",
+    "edit": "feet repainted from palette color #f7530e to #af652c, the other rows' foot orange",
+    "feet": "21 pixels repaired by pixelart.py's foot rules"
+  }
+}

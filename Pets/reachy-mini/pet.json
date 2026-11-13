@@ -1,0 +1,7 @@
+{
+  "id": "reachy-mini",
+  "displayName": "Reachy Mini",
+  "description": "A desktop robot by Pollen Robotics, with an expressive head and antennas.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pollen Codex Pets</title>
+<style>
+  :root {
+    --paper: #fff8e8;
+    --ink: #101018;
+    --muted: #6b6a72;
+    --stage: #f3f1ea;
+    --line: #10101826;
+  }
+  :root[data-background="dark"] { --stage: #1d1d22; }
+  :root[data-background="blue"] { --stage: #3d6fb6; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px 16px 48px;
+    background: var(--paper);
+    color: var(--ink);
+    font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  }
+  main { max-width: 1120px; margin: 0 auto; }
+  header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: baseline; justify-content: space-between; }
+  h1 { margin: 0; font-size: 28px; letter-spacing: -0.02em; }
+  h2 { margin: 0 0 12px; font-size: 20px; }
+  p { margin: 4px 0 0; color: var(--muted); }
+  .controls { display: flex; flex-wrap: wrap; gap: 6px; }
+  .controls button {
+    border: 2px solid var(--ink); border-radius: 8px; background: transparent; color: var(--ink);
+    font: inherit; font-weight: 600; padding: 4px 10px; cursor: pointer;
+  }
+  .controls button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  section {
+    margin-top: 24px; padding: 16px; border: 2px solid var(--ink); border-radius: 18px;
+    background: var(--stage); box-shadow: 4px 4px 0 var(--ink);
+  }
+  section h2, section p { color: var(--ink); }
+  :root[data-background="dark"] section h2, :root[data-background="dark"] section p,
+  :root[data-background="dark"] figcaption,
+  :root[data-background="blue"] section h2, :root[data-background="blue"] section p,
+  :root[data-background="blue"] figcaption { color: #fff; }
+  .rows { display: grid; grid-template-columns: repeat(auto-fill, minmax(calc(192px * var(--zoom, 1)), 1fr)); gap: 12px; }
+  figure { margin: 0; text-align: center; }
+  figcaption { font-size: 12px; font-weight: 600; color: var(--ink); }
+  .sprite {
+    width: calc(192px * var(--zoom, 1)); height: calc(208px * var(--zoom, 1)); margin: 0 auto;
+    background-repeat: no-repeat;
+    background-size: calc(1536px * var(--zoom, 1)) calc(2288px * var(--zoom, 1));
+    image-rendering: pixelated;
+  }
+  .follow { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin-bottom: 16px; }
+  .follow .sprite { outline: 1px dashed var(--line); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>Pollen Codex Pets</h1>
+      <p>Each row plays at the Codex frame timings, and idle at the ChatGPT app's six-times-slower timings.
+        With "App loops" on, each row plays three times and then idles, as in the app; the walks loop, as while dragging.
+        The large pet follows the pointer through its 16 look directions.</p>
+    </div>
+    <div class="controls" role="group" aria-label="Background">
+      <button data-background="light" aria-pressed="true">Light</button>
+      <button data-background="dark" aria-pressed="false">Dark</button>
+      <button data-background="blue" aria-pressed="false">Blue</button>
+      <button data-zoom aria-pressed="false">2×</button>
+      <button data-app-loops aria-pressed="true">App loops</button>
+    </div>
+  </header>
+  <div id="pets"></div>
+</main>
+<script type="module">
+  // `?pets=<folder>` previews pets from another folder, such as a build that isn't packaged yet.
+  // Separate folders with commas to show them one after another, such as the packaged pets
+  // and a pet from `mise run pixel:pet`:
+  // `?pets=../Pets,../Build/appearances&only=microduck,microduck-2274f99`.
+  const folders = (new URLSearchParams(location.search).get("pets") || "../Pets").split(",");
+  // A new query on every load, so that the browser fetches the current spritesheet
+  // rather than reusing a cached background image after a repackage.
+  const version = Date.now();
+  // `?only=<folder>,…` names the pet folders to show; each folder shows those it has.
+  const only = new URLSearchParams(location.search).get("only");
+  const pets = only ? only.split(",") : ["microduck", "reachy-mini"];
+  // Rows and frame durations from the Codex v2 pet contract.
+  const states = [
+    ["idle", [280, 110, 110, 140, 140, 320]],
+    ["running-right", [120, 120, 120, 120, 120, 120, 120, 220]],
+    ["running-left", [120, 120, 120, 120, 120, 120, 120, 220]],
+    ["waving", [140, 140, 140, 280]],
+    ["jumping", [140, 140, 140, 140, 280]],
+    ["failed", [140, 140, 140, 140, 140, 140, 140, 240]],
+    ["waiting", [150, 150, 150, 150, 150, 260]],
+    ["running", [120, 120, 120, 120, 120, 220]],
+    ["review", [150, 150, 150, 150, 150, 280]],
+  ];
+
+  function show(element, row, column) {
+    element.style.backgroundPosition =
+      `calc(${-column * 192}px * var(--zoom, 1)) calc(${-row * 208}px * var(--zoom, 1))`;
+  }
+
+  // The ChatGPT app plays idle at six times the contract's frame durations.
+  const IDLE_SLOWDOWN = 6;
+  // In the app, every state but idle plays its row three times and then falls back to idle,
+  // except the walks, which loop while the pet is dragged.
+  const APP_LOOPS = 3;
+  let appLoops = true;
+
+  function durationsFor(row) {
+    const durations = states[row][1];
+    return row === 0 ? durations.map((duration) => duration * IDLE_SLOWDOWN) : durations;
+  }
+
+  function play(element, row, caption) {
+    let current = row, frame = 0, loops = 0;
+    const label = caption?.textContent;
+    const step = () => {
+      if (element.dataset.look) return setTimeout(step, 100);
+      const durations = durationsFor(current);
+      show(element, current, frame);
+      const delay = durations[frame];
+      frame += 1;
+      if (frame === durations.length) {
+        frame = 0;
+        if (current !== row) {
+          current = row;
+        } else if (appLoops && row > 2 && ++loops >= APP_LOOPS) {
+          current = 0;
+          loops = 0;
+        }
+        if (caption) caption.textContent = current === row ? label : `${label} → idle`;
+      }
+      setTimeout(step, delay);
+    };
+    step();
+  }
+
+  const container = document.getElementById("pets");
+  const followers = [];
+  async function load(folder, id) {
+    const response = await fetch(`${folder}/${id}/pet.json?v=${version}`);
+    if (!response.ok) return null;
+    const manifest = await response.json();
+    return { id, name: manifest.displayName ?? id, sheet: manifest.spritesheetPath ?? "spritesheet.webp" };
+  }
+
+  const loaded = await Promise.all(folders.flatMap((folder) => pets.map(async (id) => [folder, await load(folder, id)])));
+  for (const [folder, pet] of loaded.filter(([, pet]) => pet)) {
+    const section = document.createElement("section");
+    section.innerHTML = `
+      <div class="follow">
+        <div class="sprite" role="img" aria-label="${pet.name} looking toward the pointer"></div>
+        <div><h2>${pet.name}${folders.length > 1 ? ` <small>${folder}</small>` : ""}</h2><p>Move the pointer around the page. Near the pet, it shows the idle loop.</p></div>
+      </div>
+      <div class="rows"></div>`;
+    const follower = section.querySelector(".follow .sprite");
+    follower.style.backgroundImage = `url("${folder}/${pet.id}/${pet.sheet}?v=${version}")`;
+    followers.push(follower);
+    play(follower, 0);
+    states.forEach(([name], row) => {
+      const figure = document.createElement("figure");
+      figure.innerHTML = `<div class="sprite" role="img" aria-label="${pet.name}, ${name}"></div><figcaption>${row} · ${name}</figcaption>`;
+      const sprite = figure.querySelector(".sprite");
+      sprite.style.backgroundImage = `url("${folder}/${pet.id}/${pet.sheet}?v=${version}")`;
+      section.querySelector(".rows").append(figure);
+      play(sprite, row, figure.querySelector("figcaption"));
+    });
+    container.append(section);
+  }
+
+  document.addEventListener("pointermove", (event) => {
+    for (const follower of followers) {
+      const box = follower.getBoundingClientRect();
+      const dx = event.clientX - (box.left + box.width / 2);
+      const dy = event.clientY - (box.top + box.height / 2);
+      if (Math.hypot(dx, dy) < box.width * 0.4) {
+        delete follower.dataset.look;
+        continue;
+      }
+      // Zero degrees is up; angles run clockwise in 22.5 degree steps.
+      const degrees = (Math.atan2(dx, -dy) * 180 / Math.PI + 360) % 360;
+      const index = Math.round(degrees / 22.5) % 16;
+      follower.dataset.look = index;
+      show(follower, 9 + Math.floor(index / 8), index % 8);
+    }
+  });
+
+  for (const button of document.querySelectorAll("[data-background]")) {
+    button.addEventListener("click", () => {
+      document.documentElement.dataset.background = button.dataset.background;
+      for (const other of document.querySelectorAll("[data-background]")) {
+        other.setAttribute("aria-pressed", other === button);
+      }
+    });
+  }
+  const loopsButton = document.querySelector("[data-app-loops]");
+  loopsButton.addEventListener("click", () => {
+    appLoops = loopsButton.getAttribute("aria-pressed") !== "true";
+    loopsButton.setAttribute("aria-pressed", appLoops);
+  });
+  const zoom = document.querySelector("[data-zoom]");
+  zoom.addEventListener("click", () => {
+    const on = zoom.getAttribute("aria-pressed") !== "true";
+    zoom.setAttribute("aria-pressed", on);
+    document.documentElement.style.setProperty("--zoom", on ? 2 : 1);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "//": "The owner and name of the Hugging Face Space that serves this site. Deploying needs Mattt's approval.",
+  "owner": "mattt",
+  "name": "pollen-codex-pets"
+}
