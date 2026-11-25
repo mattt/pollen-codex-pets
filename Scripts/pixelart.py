@@ -845,13 +845,14 @@ def command_site_data(args) -> None:
     import base64
     import hashlib
     sprite = Sprite.open(sprite_path(args.pet))
-    labels = [label for label, _ in sprite_cells()]
     cells = {label: (row, column) for label, row, column in atlas_cells()}
     frames = []
-    for (label, duration), frame in zip(sprite_cells(), sprite.frames):
-        cel = frame.cel(0)
+    for index, (label, duration) in enumerate(sprite_cells()):
+        if index >= len(sprite.frames):
+            raise SystemExit(f"Missing frame {label} in {sprite_path(args.pet)}")
+        cel = sprite.frames[index].cel(0)
         if not cel or not cel.user_data or cel.user_data.text != label:
-            raise SystemExit(f"Frame {labels.index(label)} of the sprite isn't {label}")
+            raise SystemExit(f"Frame {index} of the sprite isn't {label}")
         row, column = cells[label]
         frames.append({"label": label, "row": row, "column": column, "duration": duration,
                        "pixels": base64.b64encode(run_lengths(bytes(cel.pixels.data))).decode()})
